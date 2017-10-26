@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>ISYS4283.DbWrapper</id>
+    <version>0.1.2</version>
+    <title>Database Wrapper</title>
+    <authors>Jeff Puckett</authors>
+    <owners>Jeff Puckett</owners>
+    <licenseUrl>https://github.com/ISYS4283/db-wrapper/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/ISYS4283/db-wrapper</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Simple database abstraction layer.</description>
+    <releaseNotes>Fix project root namespace.</releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>SQL-Server Database Wrapper Abstraction</tags>
+  </metadata>
+</package>
