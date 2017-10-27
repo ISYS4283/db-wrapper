@@ -38,16 +38,32 @@ Public Class Db
 
     ' populate a data grid view
     Public Sub Fill(ByRef dgv As DataGridView)
+        Run(New RunDelegate(AddressOf RunFill), dgv)
+    End Sub
+
+    Protected Sub RunFill(ByRef dgv As DataGridView)
         Dim adapter As New SqlDataAdapter(command)
         Dim dataset As New DataSet
 
+        adapter.Fill(dataset)
+
+        ' fill the DataGridView with first query result set
+        If dataset.Tables.Count > 0 Then
+            dgv.Refresh()
+            dgv.DataSource = dataset.Tables(0)
+        End If
+    End Sub
+
+    Protected Delegate Sub RunDelegate(ByRef obj As Object)
+
+    Protected Sub Run(ByRef del As [Delegate], Optional ByRef obj As Object = Nothing)
         ' if anything goes wrong,
         ' then we still need to close the connection
         ' https://stackoverflow.com/a/28483789/4233593
         Try
             Try
                 connection.Open()
-                adapter.Fill(dataset)
+                del.DynamicInvoke(obj)
             Catch exception As Exception
                 Log(exception)
                 Throw
@@ -60,12 +76,6 @@ Public Class Db
 
         ' reset for next query
         command.Parameters.Clear()
-
-        ' fill the DataGridView with first query result set
-        If dataset.Tables.Count > 0 Then
-            dgv.Refresh()
-            dgv.DataSource = dataset.Tables(0)
-        End If
     End Sub
 
     ' override this method for real logger
