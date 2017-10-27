@@ -36,6 +36,14 @@ Public Class Db
         command.Parameters.AddWithValue(parameter, value)
     End Sub
 
+    Public Sub Execute()
+        Run(New RunDelegate(AddressOf RunExecute))
+    End Sub
+
+    Protected Sub RunExecute()
+        command.ExecuteNonQuery()
+    End Sub
+
     ' populate a data grid view
     Public Sub Fill(ByRef dgv As DataGridView)
         Run(New RunDelegate(AddressOf RunFill), dgv)
