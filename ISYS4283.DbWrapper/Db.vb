@@ -43,13 +43,16 @@ Public Class Db
 
         ' if anything goes wrong,
         ' then we still need to close the connection
+        ' https://stackoverflow.com/a/28483789/4233593
         Try
-            connection.Open()
-            adapter.Fill(dataset)
-        Catch ex As Exception
-            ' simulate logger
-            MsgBox(ex.Message)
-            Throw ex
+            Try
+                connection.Open()
+                adapter.Fill(dataset)
+            Catch ex As Exception
+                ' simulate logger
+                MsgBox(ex.Message)
+                Throw
+            End Try
         Finally
             If connection.State = ConnectionState.Open Then
                 connection.Close()
