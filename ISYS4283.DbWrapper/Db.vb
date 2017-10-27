@@ -31,6 +31,11 @@ Public Class Db
         End Set
     End Property
 
+    ' prevent sql injection
+    Public Sub Bind(ByRef parameter As String, ByRef value As Object)
+        command.Parameters.AddWithValue(parameter, value)
+    End Sub
+
     ' populate a data grid view
     Public Sub Fill(ByRef dgv As DataGridView)
         Dim adapter As New SqlDataAdapter(command)
@@ -50,6 +55,9 @@ Public Class Db
                 connection.Close()
             End If
         End Try
+
+        ' reset for next query
+        command.Parameters.Clear()
 
         ' fill the DataGridView with first query result set
         If dataset.Tables.Count > 0 Then
