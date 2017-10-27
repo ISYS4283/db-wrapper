@@ -83,6 +83,7 @@ Public Class Db
         End Try
 
         ' reset for next query
+        command.CommandText = Nothing
         command.Parameters.Clear()
     End Sub
 
