@@ -9,6 +9,17 @@ Public Class Db
     ' prepare a query
     Protected command As New SqlCommand With {.Connection = connection}
 
+    ' set and get connection
+    Public Property ConnectionString() As String
+        Get
+            Return connection.ConnectionString
+        End Get
+
+        Set(value As String)
+            connection.ConnectionString = value
+        End Set
+    End Property
+
     ' set and get sql command
     Public Property Sql() As String
         Get
