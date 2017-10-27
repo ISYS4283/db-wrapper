@@ -48,9 +48,8 @@ Public Class Db
             Try
                 connection.Open()
                 adapter.Fill(dataset)
-            Catch ex As Exception
-                ' simulate logger
-                MsgBox(ex.Message)
+            Catch exception As Exception
+                Log(exception)
                 Throw
             End Try
         Finally
@@ -67,5 +66,10 @@ Public Class Db
             dgv.Refresh()
             dgv.DataSource = dataset.Tables(0)
         End If
+    End Sub
+
+    ' override this method for real logger
+    Protected Sub Log(ByRef exception As Exception)
+        MsgBox(exception.Message)
     End Sub
 End Class
