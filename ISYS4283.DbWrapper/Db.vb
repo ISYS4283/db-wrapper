@@ -36,6 +36,11 @@ Public Class Db
         command.Parameters.AddWithValue(parameter, value)
     End Sub
 
+    ' execute DML
+    Public Sub Execute()
+        Run(New QueryExecute)
+    End Sub
+
     ' populate a data grid view
     Public Sub Fill(ByRef dgv As DataGridView)
         Run(New QueryDataGridView, dgv)
