@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>ISYS4283.DbWrapper</id>
-    <version>0.2.0-dev</version>
+    <version>0.2.0</version>
     <title>Database Wrapper</title>
     <authors>Jeff Puckett</authors>
     <owners>Jeff Puckett</owners>
