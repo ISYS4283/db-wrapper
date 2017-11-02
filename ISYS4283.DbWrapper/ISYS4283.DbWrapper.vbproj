@@ -82,6 +82,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Query.vb" />
+    <Compile Include="QueryDataSet.vb" />
     <Compile Include="QueryExecute.vb" />
   </ItemGroup>
   <ItemGroup>

@@ -3,10 +3,10 @@ Imports System.Windows.Forms
 
 Friend Class QueryDataGridView : Implements IQuery
     Protected Sub Fill(ByRef command As SqlCommand, ByRef dgv As DataGridView)
-        Dim adapter As New SqlDataAdapter(command)
         Dim dataset As New DataSet
+        Dim queryDataSet As New QueryDataSet
 
-        adapter.Fill(dataset)
+        queryDataSet.Run(command, dataset)
 
         ' fill the DataGridView with first query result set
         If dataset.Tables.Count > 0 Then

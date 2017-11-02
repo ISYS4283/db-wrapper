@@ -41,6 +41,11 @@ Public Class Db
         Run(New QueryExecute)
     End Sub
 
+    ' populate a generic data set
+    Public Sub Fill(ByRef dataset As DataSet)
+        Run(New QueryDataSet, dataset)
+    End Sub
+
     ' populate a data grid view
     Public Sub Fill(ByRef dgv As DataGridView)
         Run(New QueryDataGridView, dgv)
