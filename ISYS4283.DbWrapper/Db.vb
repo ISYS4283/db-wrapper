@@ -70,7 +70,7 @@ Public Class Db
     End Sub
 
     ' override this method for real logger
-    Protected Sub Log(ByRef exception As Exception)
+    Protected Overridable Sub Log(ByRef exception As Exception)
         MsgBox(exception.Message)
     End Sub
 End Class

@@ -32,7 +32,7 @@ By default, a `MsgBox` will simply show the error message.
 To customize this, extend the `Db` class and override the `Log` method.
 
 ```vb
-Protected Sub Log(ByRef exception As Exception)
+Protected Overrides Sub Log(ByRef exception As Exception)
     ' your custom logger implementation
 End Sub
 ```
