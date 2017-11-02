@@ -4,15 +4,12 @@ This is a simple database abstraction layer for Microsoft SQL Server.
 
 ## Usage
 
-Import the namespace at the top of your class file.
-
-```vb
-Imports ISYS4283.DbWrapper
-```
-
 By default, the connection string is set to use the ISYS4283 database.
 
 ```vb
+' instantiate object
+Dim db = New ISYS4283.DbWrapper.Db
+
 ' connect to database
 db.ConnectionString = "Server=essql1.walton.uark.edu;Database=jeffpuckett;Trusted_Connection=yes;"
 
@@ -24,6 +21,20 @@ db.Execute()
 ' fill a DataGridView
 db.Sql = "SELECT * FROM questions"
 db.Fill(DataGridView1)
+```
+
+When using this multiple times throughout your project,
+you'll want to extend the class so that your code is [DRY][dry] and
+your connection string information is only in one place.
+
+```vb
+Public Class MyDb
+    Inherits ISYS4283.DbWrapper.Db
+
+    Public Sub New()
+        ConnectionString = "Server=essql1.walton.uark.edu;Database=jeffpuckett;Trusted_Connection=yes;"
+    End Sub
+End Class
 ```
 
 ### Exception Logging
@@ -54,3 +65,4 @@ and click the install icon on the far right for the latest version.
 [nuget]:https://www.nuget.org/packages/ISYS4283.DbWrapper/
 [manage-nuget]:https://i.imgur.com/20hWdUB.png
 [search-isys4283]:https://i.imgur.com/2DNwZNu.png
+[dry]:https://en.wikipedia.org/wiki/Don%27t_repeat_yourself
