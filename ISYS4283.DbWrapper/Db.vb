@@ -46,6 +46,14 @@ Public Class Db
         Run(New QueryDataSet, dataset)
     End Sub
 
+    Public Sub Fill(ByRef combobox As ComboBox)
+        Run(New QuerySelectBox, combobox)
+    End Sub
+
+    Public Sub Fill(ByRef listbox As ListBox)
+        Run(New QuerySelectBox, listbox)
+    End Sub
+
     ' populate a data grid view
     Public Sub Fill(ByRef dgv As DataGridView)
         Run(New QueryDataGridView, dgv)

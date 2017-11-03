@@ -21,6 +21,12 @@ db.Execute()
 ' fill a DataGridView
 db.Sql = "SELECT * FROM questions"
 db.Fill(DataGridView1)
+
+' fill a ComboBox or ListBox (must have at least 2 columns selected)
+' DisplayMember is set to first column
+' ValueMember is set to second column
+db.Sql = "SELECT username, id FROM users"
+db.Fill(ComboBox1)
 ```
 
 When using this multiple times throughout your project,

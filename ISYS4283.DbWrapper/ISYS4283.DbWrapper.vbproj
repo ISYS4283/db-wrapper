@@ -84,6 +84,7 @@
     <Compile Include="Query.vb" />
     <Compile Include="QueryDataSet.vb" />
     <Compile Include="QueryExecute.vb" />
+    <Compile Include="QuerySelectBox.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
