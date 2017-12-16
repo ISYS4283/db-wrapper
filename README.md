@@ -20,7 +20,7 @@ and click the install icon on the far right for the latest version.
 
 Extend the class and set your connection string in the constructor.
 
-### VB
+### VB Inheritance
 
 ```vb
 Public Class Db
@@ -32,7 +32,7 @@ Public Class Db
 End Class
 ```
 
-### C#
+### C# Inheritance
 
 ```cs
 class Db : ISYS4283.DbWrapper.Db
@@ -64,6 +64,20 @@ db.Fill(DataGridView1)
 ' ValueMember is set to second column
 db.Sql = "SELECT username, id FROM users"
 db.Fill(ComboBox1)
+```
+
+Similarly in c#
+
+```cs
+Db db = new Db();
+
+db.Sql = "SELECT * FROM users WHERE id = @id";
+
+int id = 1;
+
+db.Bind("@id", id);
+
+db.Fill(ref dataGridView1);
 ```
 
 ### Exception Logging
