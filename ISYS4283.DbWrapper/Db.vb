@@ -1,11 +1,9 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Windows.Forms
 
-Public Class Db
+Public MustInherit Class Db
     ' login to database server
-    Protected connection As New SqlConnection With {
-        .ConnectionString = "Server=essql1.walton.uark.edu;Database=isys4283-2017fa;Trusted_Connection=yes;"
-    }
+    Protected connection As New SqlConnection
     ' prepare a query
     Protected command As New SqlCommand With {.Connection = connection}
 

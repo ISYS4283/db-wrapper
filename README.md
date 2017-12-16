@@ -4,14 +4,37 @@ This is a simple database abstraction layer for Microsoft SQL Server.
 
 ## Usage
 
-By default, the connection string is set to use the ISYS4283 database.
+Extend the class and set your connection string in the constructor.
+
+### VB
+
+```vb
+Public Class Db
+    Inherits ISYS4283.DbWrapper.Db
+
+    Public Sub New()
+        ConnectionString = "Server=essql1.walton.uark.edu;Database=insert_database_name_here;Trusted_Connection=yes;"
+    End Sub
+End Class
+```
+
+### C#
+
+```cs
+class Db : ISYS4283.DbWrapper.Db
+{
+    public Db()
+    {
+        ConnectionString = "Server=essql1.walton.uark.edu;Database=insert_database_name_here;Trusted_Connection=yes;";
+    }
+}
+```
+
+Here's some examples filling form controls from a database in VB.
 
 ```vb
 ' instantiate object
-Dim db = New ISYS4283.DbWrapper.Db
-
-' connect to database
-db.ConnectionString = "Server=essql1.walton.uark.edu;Database=jeffpuckett;Trusted_Connection=yes;"
+Dim db = New Db
 
 ' execute DML
 db.Sql = "INSERT INTO questions (question) VALUES (@question)"
@@ -27,20 +50,6 @@ db.Fill(DataGridView1)
 ' ValueMember is set to second column
 db.Sql = "SELECT username, id FROM users"
 db.Fill(ComboBox1)
-```
-
-When using this multiple times throughout your project,
-you'll want to extend the class so that your code is [DRY][dry] and
-your connection string information is only in one place.
-
-```vb
-Public Class MyDb
-    Inherits ISYS4283.DbWrapper.Db
-
-    Public Sub New()
-        ConnectionString = "Server=essql1.walton.uark.edu;Database=jeffpuckett;Trusted_Connection=yes;"
-    End Sub
-End Class
 ```
 
 ### Exception Logging
@@ -93,4 +102,3 @@ Add local directory as package source in visual studio.
 [nuget]:https://www.nuget.org/packages/ISYS4283.DbWrapper/
 [manage-nuget]:https://i.imgur.com/20hWdUB.png
 [search-isys4283]:https://i.imgur.com/2DNwZNu.png
-[dry]:https://en.wikipedia.org/wiki/Don%27t_repeat_yourself
