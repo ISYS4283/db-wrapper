@@ -30,7 +30,7 @@ Public MustInherit Class Db
     End Property
 
     ' prevent sql injection
-    Public Sub Bind(ByRef parameter As String, ByRef value As Object)
+    Public Sub Bind(ByVal parameter As String, ByVal value As Object)
         command.Parameters.AddWithValue(parameter, value)
     End Sub
 
