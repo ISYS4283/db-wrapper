@@ -2,6 +2,20 @@
 
 This is a simple database abstraction layer for Microsoft SQL Server.
 
+## Installation
+
+Grab the [package from nuget][nuget].
+
+In the solution explorer, right click your project references
+and select `Manage NuGet Packages`
+
+![manage nuget packages][manage-nuget]
+
+On the browse tab, search for `ISYS4283.DbWrapper`
+and click the install icon on the far right for the latest version.
+
+![search and install][search-isys4283]
+
 ## Usage
 
 Extend the class and set your connection string in the constructor.
@@ -62,20 +76,6 @@ Protected Overrides Sub Log(ByRef exception As Exception)
     ' your custom logger implementation
 End Sub
 ```
-
-## Installation
-
-Grab the [package from nuget][nuget].
-
-In the solution explorer, right click your project references
-and select `Manage NuGet Packages`
-
-![manage nuget packages][manage-nuget]
-
-On the browse tab, search for `ISYS4283.DbWrapper`
-and click the install icon on the far right for the latest version.
-
-![search and install][search-isys4283]
 
 ## Contributing
 
