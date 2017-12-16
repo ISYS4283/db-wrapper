@@ -68,6 +68,28 @@ and click the install icon on the far right for the latest version.
 
 ![search and install][search-isys4283]
 
+## Contributing
+
+Pull requests are welcome.
+
+### Nuget Notes
+
+Here are some notes on building the nuget packages.
+
+Create alias:
+
+```
+doskey pack=nuget pack ISYS4283.DbWrapper.vbproj
+```
+
+Create nuget package:
+
+```
+pack
+```
+
+Add local directory as package source in visual studio.
+
 [nuget]:https://www.nuget.org/packages/ISYS4283.DbWrapper/
 [manage-nuget]:https://i.imgur.com/20hWdUB.png
 [search-isys4283]:https://i.imgur.com/2DNwZNu.png
