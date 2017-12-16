@@ -113,6 +113,20 @@ pack
 
 Add local directory as package source in visual studio.
 
+Test accordingly.
+
+Add API key for publishing a release:
+
+```
+nuget setApiKey Your-API-Key
+```
+
+Push release:
+
+```
+nuget push YourPackage.nupkg -Source https://api.nuget.org/v3/index.json
+```
+
 [nuget]:https://www.nuget.org/packages/ISYS4283.DbWrapper/
 [manage-nuget]:https://i.imgur.com/20hWdUB.png
 [search-isys4283]:https://i.imgur.com/2DNwZNu.png

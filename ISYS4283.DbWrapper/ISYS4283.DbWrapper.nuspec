@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>ISYS4283.DbWrapper</id>
-    <version>1.0.0-dev</version>
+    <version>1.0.0</version>
     <title>Database Wrapper</title>
     <authors>Jeff Puckett</authors>
     <owners>Jeff Puckett</owners>
@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/ISYS4283/db-wrapper</projectUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>Simple database abstraction layer.</description>
-    <releaseNotes>Abstract class with parameter names by value.</releaseNotes>
+    <releaseNotes>Abstract class binding parameters by value.</releaseNotes>
     <copyright>Copyright 2017</copyright>
     <tags>SQL-Server Database Wrapper Abstraction</tags>
   </metadata>
