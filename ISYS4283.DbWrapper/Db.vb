@@ -39,20 +39,22 @@ Public MustInherit Class Db
         Run(New QueryExecute)
     End Sub
 
-    ' populate a generic data set
+    ' populate a DataSet with query result set
     Public Sub Fill(ByRef dataset As DataSet)
         Run(New QueryDataSet, dataset)
     End Sub
 
+    ' populate a ComboBox with query result set
     Public Sub Fill(ByRef combobox As ComboBox)
         Run(New QuerySelectBox, combobox)
     End Sub
 
+    ' populate a ListBox with query result set
     Public Sub Fill(ByRef listbox As ListBox)
         Run(New QuerySelectBox, listbox)
     End Sub
 
-    ' populate a data grid view
+    ' populate a DataGridView with query result set
     Public Sub Fill(ByRef dgv As DataGridView)
         Run(New QueryDataGridView, dgv)
     End Sub
@@ -62,6 +64,7 @@ Public MustInherit Class Db
         ' then we still need to close the connection
         ' https://stackoverflow.com/a/28483789/4233593
         Try
+            ' nested try allows throwing exception from catch block
             Try
                 connection.Open()
                 query.Run(command, obj)

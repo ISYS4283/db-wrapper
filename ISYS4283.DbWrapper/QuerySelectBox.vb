@@ -1,5 +1,6 @@
 ﻿Imports System.Data.SqlClient
 
+' used for filling multiple form controls, such as ComboBox and ListBox
 Friend Class QuerySelectBox : Implements IQuery
     Public Sub Run(ByRef command As SqlCommand, Optional ByRef obj As Object = Nothing) Implements IQuery.Run
         Dim dataset As New DataSet
